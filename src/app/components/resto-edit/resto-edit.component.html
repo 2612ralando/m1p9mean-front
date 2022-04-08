@@ -1,0 +1,81 @@
+<div class="row justify-content-right">
+    <div class="col-md-4 register-resto">
+      <!-- form card register -->
+      <div class="card card-outline-secondary">
+        <div class="card-header">
+          <h3 class="mb-0">Edit Resto</h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="inputName">Nom Restaurant</label>
+              <input class="form-control" type="text" formControlName="name" />
+              <div
+                class="invalid-feedback"
+                *ngIf="submitted && myForm['name'].errors?.['required']"
+              >
+              Veuiller saisir le nom!
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputAdresse">Adresse</label>
+              <input class="form-control" type="text" formControlName="adresse" />
+              <div
+                class="invalid-feedback"
+                *ngIf="submitted && myForm['adresse'].errors?.['required']"
+              >
+              Veuiller saisir l'adresse!
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputEmail3">Email</label>
+              <input class="form-control" type="text" formControlName="email" />
+              <!-- error -->
+              <div
+                class="invalid-feedback"
+                *ngIf="submitted && myForm['email'].errors?.['required']"
+              >
+              Veuiller saisir l'email!
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="submitted && myForm['email'].errors?.['pattern']"
+              >
+              Veuiller entrer un email valide!
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="inputVerify3">Phone</label>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="phoneNumber"
+              />
+              <!-- error -->
+              <div
+                class="invalid-feedback"
+                *ngIf="submitted && myForm['phoneNumber'].errors?.['required']"
+              >
+              Veuiller entrer le numero de telephone!
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="submitted && myForm['phoneNumber'].errors?.['pattern']"
+              >
+              chiffre seulement
+              </div>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-success btn-lg btn-block" type="submit">
+                Update
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- form  -->
+    </div>
+  </div>

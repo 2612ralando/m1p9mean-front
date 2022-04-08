@@ -1,0 +1,73 @@
+<div class="row justify-content-right">
+    <div class="col-md-4 register-resto">
+      <!-- form card register -->
+      <div class="card-body">
+        <form [formGroup]="restoForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="inputName">Nom</label>
+            <input class="form-control" type="text" formControlName="name" />
+            <!-- error -->
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm['name'].errors?.['required']"
+            >
+            Veuiller saisir le nom!
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputAdresse">Adresse</label>
+            <input class="form-control" type="text" formControlName="adresse" />
+            <!-- error -->
+          </div>
+
+          <div class="form-group">
+            <label for="inputEmail3">Email</label>
+            <input class="form-control" type="text" formControlName="email" />
+            <!-- error -->
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm['email'].errors?.['required']"
+            >
+            Veuiller saisir l'email!
+            </div>
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm['email'].errors?.['pattern']"
+            >
+            Veuiller entrer un email valide!
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="inputVerify3">Contact Telephonique</label>
+            <input
+              class="form-control"
+              type="text"
+              formControlName="phoneNumber"
+            />
+            <!-- error -->
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm['phoneNumber'].errors?.['required']"
+            >
+            Veuiller entrer le numero de telephone!
+            </div>
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm['phoneNumber'].errors?.['pattern']"
+            >
+              chiffre seulement
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block" type="submit">
+              Confirmer
+            </button>
+          </div> 
+        </form>
+      </div>
+    </div>
+    <!-- form card register -->
+  </div>
+  

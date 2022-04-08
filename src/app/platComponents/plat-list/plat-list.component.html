@@ -1,0 +1,69 @@
+<!--<div class="container">-->
+    <!-- No data message -->
+    <!--<p *ngIf="Plat.length <= 0" class="no-data text-center">Pas encore de plat dispo!</p>-->
+    <!-- Plat list -->
+    <!--<table class="table table-light table-bordered" *ngIf="Plat.length > 0">
+      <thead class="table-responsive">
+        <tr>
+          <th scope="col">Plat</th>
+          <th scope="col">Categorie</th>
+          <th scope="col">Details</th>
+          <th scope="col">Prix</th>
+          <th scope="col center">Update</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let plat of Plat; let i = index">
+          <td>{{plat.nomPlat}}</td>
+          <td>{{plat.categorie}}</td>
+          <td>{{plat.details}}</td>
+          <td>{{plat.prix}}</td>
+          <td class="text-center edit-block">
+            <span class="edit" [routerLink]="['/edit-plat/', plat._id]">
+              <button type="button" class="btn btn-success btn-lg">Edit</button>
+            </span>
+            <span class="delete" (click)="removePlat(plat, i)">
+              <button type="button" class="btn btn-danger btn-lg">Delete</button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>-->
+
+  <div class="container">
+    <div class="row">
+      <nav>
+        <a routerLinkActive="active" routerLink="/create-plat">Add Plat</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="col-12 mt-2">
+    <div class="container-fluid">
+      <h3 class="text-center text-warning>">Bienvenue sur resto.name</h3> 
+      <div class="row">
+          <div class="col-sm-3" *ngFor="let plat of Plat; let i= index">
+              <div class="card mt-2 bg-success" style="width: 20rem;">
+                <h5 class="card-header text-center text-light border border-success>"><!--<img src="" width="100" height="45">-->
+                  <span class="float-right font-weight-bold" style="font-size:15pt">{{plat.nomPlat}}</span>
+                </h5>
+                  <div class="card-body bg-light border border-success text-dark">
+                    <h6 style="font-size:10pt" class="float-left font-weight-bold">Categorie :
+                      <span class="float-right font-weight-bold" style="font-size:10pt">{{plat.categorie}}</span>
+                    </h6>
+                    <h6 style="font-size:10pt" class="float-left font-weight-bold">Details :
+                      <span class="float-right font-weight-bold" style="font-size:10pt">{{plat.details}}</span>
+                    </h6>
+                    <h6 style="font-size:10pt" class="float-left font-weight-bold">Prix :
+                      <span class="float-right font-weight-bold" style="font-size:10pt">{{plat.prix}}</span>
+                    </h6>
+                    <span class="delete" (click)="removePlat(plat, i)">
+                      <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                    </span> 
+                  </div>          
+              </div>
+          </div>  
+      </div>
+    </div>  
+  </div>
