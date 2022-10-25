@@ -8,7 +8,7 @@ import { PlatEditComponent } from './platComponents/plat-edit/plat-edit.componen
 import { PlatListComponent } from './platComponents/plat-list/plat-list.component';
 
 const routes: Routes = [
-  // { path: '', pathMatch: 'full', redirectTo: 'restos-list' },
+  { path: '', pathMatch: 'full', redirectTo: 'restos-list' },
   { path: 'create-resto', component: RestoCreateComponent },
   { path: 'edit-resto/:id', component: RestoEditComponent}, 
   { path: 'restos-list', component: RestoListComponent },
