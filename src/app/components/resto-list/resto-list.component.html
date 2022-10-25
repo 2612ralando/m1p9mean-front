@@ -24,11 +24,15 @@
     <h3 class="text-center text-warning>">Bienvenue sur eKaly</h3> 
     <div class="row">
         <div class="col-sm-3" *ngFor="let resto of Resto; let i= index">
-          <a routerLink="/restos-list" onclick="findPlatByResto(resto._id);" style="text-decoration: none;">
+          <!-- <a routerLink="/restos-list" onclick="findPlatByResto(resto._id);" style="text-decoration: none;"> -->
+          <!-- <a [routerLink]="['/plats-list/', resto._id]" style="text-decoration: none;"> -->
+            <a [routerLink]="['/plats-list/', resto.idResto]" style="text-decoration: none;">
+
             <div class="card mt-2 bg-warning">
                 <h5 class="card-header text-center text-dark border border-warning>"><!--<img src="" width="100" height="45">-->
                   <span class="float-right font-weight-bold" style="font-size:15pt">{{resto.name}}</span>
                 </h5>
+
                 <div class="card-body text-center bg-light border border-warning text-dark">
                   <h6 style="font-size:10pt">
                     <span class="float-right font-weight-bold" style="font-size:15pt">{{resto.adresse}}</span>
@@ -40,7 +44,7 @@
                     <span class="float-right font-weight-bold" style="font-size:10pt">{{resto.phoneNumber}}</span>
                   </h6>
                   <span class="delete" (click)="removeResto(resto, i)">
-                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                    <!-- <button type="button" class="btn btn-danger btn-sm">Delete</button> -->
                   </span>
                 </div>
             </div>

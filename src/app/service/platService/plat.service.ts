@@ -6,12 +6,15 @@ import {
   HttpHeaders,
   HttpErrorResponse,
 } from '@angular/common/http';
+import { Plat } from 'src/app/model/plat';
 @Injectable({
   providedIn: 'root',
 })
 export class PlatService {
-  baseUri: string = 'http://localhost:4000/plats';
+  baseUri: string = 'https://m1p9mean-orlando-back.herokuapp.com/plat';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+  plats: Plat[]=[];
   constructor(private http: HttpClient) {}
   // Create
   createPlat(data): Observable<any> {
@@ -23,15 +26,14 @@ export class PlatService {
     return this.http.get(`${this.baseUri}`);
   }
   // Get plat
-  getPlat(id): Observable<any> {
+  getPlat(id:string | null): Observable<Plat[]> {
     let url = `${this.baseUri}/read/${id}`;
-    return this.http.get(url, { headers: this.headers }).pipe(
-      map((res: Response) => {
-        return res || {};
-      }),
-      catchError(this.errorMgmt)
-    );
+    console.log("url =" +  url);
+    return this.http.get<Plat[]>(url);
   }
+
+
+
   // Update plat
   updatePlat(id, data): Observable<any> {
     let url = `${this.baseUri}/update/${id}`;

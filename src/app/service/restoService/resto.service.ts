@@ -10,7 +10,7 @@ import {
   providedIn: 'root',
 })
 export class RestoService {
-  baseUri: string = 'http://localhost:4000/restos';
+  baseUri: string = 'https://m1p9mean-orlando-back.herokuapp.com/restos';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(private http: HttpClient) {}
   // Create
